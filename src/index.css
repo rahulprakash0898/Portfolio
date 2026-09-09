@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base resets & scrollbar overrides */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: #08090e;
+}
+
+/* Simple utility to completely hide scrollbars */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Custom styles for light-theme override variables/states */
+.light-theme {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4 {
+  color: #0f172a !important;
+}
+
+.light-theme p,
+.light-theme span {
+  color: #334155 !important;
+}
+
+.light-theme #splash-screen {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.light-theme #splash-screen span {
+  color: #0f172a !important;
+}
+
+.light-theme #splash-screen h2 {
+  color: #0f172a !important;
+}
+
+.light-theme #splash-screen h2 + p {
+  color: #64748b !important;
+}
+
+/* Timeline borders adjustment for light mode */
+.light-theme #experience p,
+.light-theme #experience span {
+  color: #475569 !important;
+}
+
+.light-theme #experience h4,
+.light-theme #experience .font-semibold {
+  color: #0f172a !important;
+}
+
+/* Grid & Timeline Background overrides in light theme */
+.light-theme #experience > div > div > div,
+.light-theme #skills > div > div > div,
+.light-theme #projects > div > div > div,
+.light-theme #certifications > div > div > div {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme #projects h2,
+.light-theme #projects h3,
+.light-theme #projects h4 {
+  color: #0f172a !important;
+}
+
+.light-theme #projects p,
+.light-theme #projects li {
+  color: #475569 !important;
+}
+
+.light-theme #projects span.font-mono {
+  color: #64748b !important;
+}
+
+.light-theme #projects .px-2 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  color: #475569 !important;
+}
+
+.light-theme #skills button {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+  color: #475569 !important;
+}
+
+.light-theme #skills button:hover {
+  border-color: #3b82f6 !important;
+  color: #2563eb !important;
+}
+
+.light-theme #contact footer,
+.light-theme #contact div {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* CSS printing adjustments for absolute precision on printable layouts */
+@media print {
+  /* Hide all dynamic cyber elements on printing */
+  #splash-screen,
+  #futuristic-canvas-bg,
+  header,
+  #hero,
+  #about,
+  #experience,
+  #skills,
+  #certifications,
+  #projects,
+  #resume-viewer > div,
+  #contact,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Make document full printable size */
+  #resume-viewer {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #formal-cv-document {
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    page-break-after: avoid;
+  }
+
+  /* Exclude printer alerts and print buttons */
+  .print\:hidden {
+    display: none !important;
+  }
+}
+
+/* Custom marquee or glow animations */
+@keyframes tilt {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(1deg); }
+}
+.animate-tilt {
+  animation: tilt 10s infinite linear;
+}
